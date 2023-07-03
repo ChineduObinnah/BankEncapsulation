@@ -6,32 +6,32 @@
         {
             var account = new BankAccount();
 
-
-            Console.WriteLine($"How much do you want to deposit?");
-            double amountToAdd;
-            bool willParse = double.TryParse(Console.ReadLine(), out amountToAdd);
-            while (!willParse)
+            while (true)
             {
-                Console.WriteLine($"Invalid, Please Try Again.");
-                Console.WriteLine("Enter a valid amount:");
-                willParse = double.TryParse(Console.ReadLine(), out amountToAdd);
 
+                Console.WriteLine(" Welcome to the Upward Bank!");
+                Console.WriteLine($"How much do you want to deposit?");
+                double amountToAdd;
+                bool willParse = double.TryParse(Console.ReadLine(), out amountToAdd);
+                while (!willParse)
+                {
+                    Console.WriteLine($"Invalid, Please Try Again.");
+                    Console.WriteLine("Enter a valid amount:");
+                    willParse = double.TryParse(Console.ReadLine(), out amountToAdd);
 
-            }
-            account.Deposit(amountToAdd);
-            Console.WriteLine($"Ammount Deposited!");
+                }
+                account.Deposit(amountToAdd);
+                Console.WriteLine($"Ammount Deposited!");
 
-            Console.WriteLine($"Do you want to see your balance?");
-            Console.WriteLine($"Please enter 'yes' or 'no'");
+                Console.WriteLine($"Do you want to see your balance?");
+                Console.WriteLine($"Please enter 'yes' or 'no'");
 
-            var cont = Console.ReadLine();
-            while (cont != "yes" && cont != "no")
-            {
-                Console.WriteLine($"Invalid please enter 'yes' or 'no'");
-                cont = Console.ReadLine();
-            }
-            while (cont == "yes")
-            {
+                var cont = Console.ReadLine();
+                while (cont != "yes" && cont != "no")
+                {
+                    Console.WriteLine($"Invalid please enter 'yes' or 'no'");
+                    cont = Console.ReadLine();
+                }
 
                 switch (cont)
                 {
@@ -41,11 +41,11 @@
 
                     case "no":
                         Console.WriteLine($"No Problem, Have a good day!");
-                        break;
+                        return;
 
                 }
-            }
 
+            }
         }
 
     }
